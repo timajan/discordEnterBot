@@ -9,7 +9,7 @@ load_dotenv()
 
 # Access environment variables
 token = os.getenv("TOKEN")
-path_var = os.getenv('PATH')
+ffmpeg_path = os.getenv('FFMPEG_PATH')
 
 intents = discord.Intents.default()
 intents.guilds = True
@@ -19,14 +19,6 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 threadStarted = False
 isPlaying = True
-
-
-ffmpeg_path = ''
-
-# Find which part of PATH contains FFmpeg (assuming ffmpeg executable is named ffmpeg or ffmpeg.exe)
-for path in path_var.split(';'):
-    if 'ffmpeg' in path.lower():
-        ffmpeg_path = path
 
 
 @client.event
